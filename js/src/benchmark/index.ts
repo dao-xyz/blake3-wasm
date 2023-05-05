@@ -29,6 +29,18 @@ const getSample = (size: number): Uint8Array => {
 const suite = new B.Suite("_");
 for (const [i, size] of sizes.entries()) {
 
+	/* suite.add("sha256, size: " + size / 1e3 + "kb", {
+		defer: true,
+		fn: (deferred: any) => {
+			{
+				const rng = getSample(size);
+				crypto.createHash("sha256").update(rng).digest()
+				deferred.resolve();
+			}
+		},
+	}); */
+
+
 /* 	suite.add("blake3 lib: " + size / 1e3 + "kb", {
 		defer: true,
 		fn: (deferred: any) => {
@@ -40,7 +52,7 @@ for (const [i, size] of sizes.entries()) {
 		},
 	});  */
 
-	suite.add("hash wasm copy " + size / 1e3 + "kb", {
+	 suite.add("hash wasm copy " + size / 1e3 + "kb", {
 		defer: true,
 		fn: (deferred: any) => {
 			{
@@ -49,7 +61,7 @@ for (const [i, size] of sizes.entries()) {
 				deferred.resolve();
 			}
 		},
-	});
+	}); 
 }
 suite
 	.on("cycle", (event: any) => {
