@@ -1,0 +1,24 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "benchmark": "node --loader ts-node/esm ./src/benchmark/index.ts",
+    "build": "cd ../rust && wasm-pack build --target web && npm --prefix ../rust/pkg pkg set 'type'='module'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4",
+    "@types/node":"^18.16.3",
+    "benchmark":"^2.1.4",
+    "@types/benchmark":"^2.1.2",
+    "ts-node" :"^10.9.1"
+  }
+}
