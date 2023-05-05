@@ -52,7 +52,7 @@ for (const [i, size] of sizes.entries()) {
 		},
 	});  */
 
-	 suite.add("hash wasm copy " + size / 1e3 + "kb", {
+	 suite.add("hash wasm simple" + size / 1e3 + "kb", {
 		defer: true,
 		fn: (deferred: any) => {
 			{
