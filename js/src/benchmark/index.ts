@@ -32,11 +32,11 @@ for (const [i, size] of sizes.entries()) {
 	suite.add("sha256, size: " + size / 1e3 + "kb", {
 		defer: true,
 		fn: (deferred: any) => {
-			{
-				const rng = getSample(size);
-				crypto.createHash("sha256").update(rng).digest()
-				deferred.resolve();
-			}
+		
+			const rng = getSample(size);
+			crypto.createHash("sha256").update(rng).digest()
+			deferred.resolve();
+			
 		},
 	}); 
 
@@ -55,11 +55,11 @@ for (const [i, size] of sizes.entries()) {
 	 suite.add("hash wasm simple: " + size / 1e3 + "kb", {
 		defer: true,
 		fn: (deferred: any) => {
-			{
-				const rng = getSample(size);
-				bhash(rng)
-				deferred.resolve();
-			}
+			
+			const rng = getSample(size);
+			bhash(rng)
+			deferred.resolve();
+			
 		},
 	}); 
 }
