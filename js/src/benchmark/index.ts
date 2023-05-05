@@ -3,7 +3,7 @@ import crypto from "crypto";
 /*  import { hash as hashBlake3Lib, createHash } from 'blake3'   */
 // Add  "blake3": "^2.1.7" (?) to dev dependencies to test the blake3 lib
 
-import init, { hash as bhash} from '../../../rust/pkg/blake3_bindgen.js'
+import init, { hash as bhash } from '../../../rust/pkg/blake3_bindgen.js'
 const wasmFetch = async (input: any) => (await (await import("node:fs/promises")).readFile(input)) as any // TODO fix types.
 globalThis.fetch = wasmFetch // wasm-pack build --target web generated load with 'fetch' but node fetch can not load wasm yet, so we need to do this
 await init();
